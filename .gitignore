@@ -1,0 +1,65 @@
+# Dependencies
+frontend/node_modules/
+backend/deploy/*
+!backend/deploy/.gitkeep
+backend/venv/
+
+# Build outputs
+frontend/dist/
+backend/function.zip
+
+# Environment files
+.env
+.env.local
+
+# Domain configuration (keep sample, ignore actual config)
+domain-config.json
+
+# Generated files (keep template, ignore generated)
+frontend/index.html
+
+# Python virtual environments
+diagrams/diagram_env/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# AWS deployment artifacts
+*.zip
+response.json
+test_payload.json
+trust-policy.json
+node_modules/
+backend/_pytest
+backend/boto3*
+backend/bin
+backend/botocore*
+backend/jmespath
+backend/iniconfig-2.1.0.dist-info/*
+
+# Accessibility screenshots
+accessibility-screenshots/
+site_screenshots
+take_screenshots.js
+MONITORING_REQUIREMENTS.md
+
+# Diagram files
+diagrams/*.png
+diagrams/*.svg

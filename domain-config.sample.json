@@ -1,0 +1,17 @@
+{
+  "_instructions": "1. Copy this file to domain-config.json  2. Update the USER_UPDATE values below  3. Run: node deploy-amplify-zip.js",
+  
+  "_comment_user_update": "UPDATE THESE VALUES:",
+  "domain": "your-domain.com",
+  "subdomain": "your-subdomain", 
+  "fullDomain": "your-subdomain.your-domain.com",
+  "region": "us-east-1",
+  "projectName": "your-project-name",
+  "alertEmail": "your-email@domain.com",
+  "costThreshold": 10,
+  "errorThreshold": 5,
+  "durationThreshold": 30000,
+  "invocationThreshold": 1000,
+  "rateLimitPerMinute": 60,
+  "lambdaMemorySize": 256
+}

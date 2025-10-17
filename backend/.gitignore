@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environment
+venv/
+.venv/
+env/
+ENV/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Development files (keep organized structure)
+tests-dev/
+dev/
+
+# Deployment artifacts (keep deploy/ but ignore generated files)
+deploy/*.zip
+deploy/function.zip
+deploy/bootstrap
+deploy/
+
+# AWS/Lambda specific
+*.zip
+function.zip
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Data
+data/
+
+# Temporary files
+*.tmp
+*.temp

@@ -1,0 +1,631 @@
+/* Ved-inspired theme */
+:root {
+  --ved-primary: #6364FF;
+  --ved-primary-dark: #563ACC;
+  --ved-bg: #ffffff;
+  --ved-surface: #f8f9fa;
+  --ved-border: #e1e8ed;
+  --ved-text: #0f1419;
+  --ved-text-secondary: #536471;
+  --ved-success: #008a5b; /* Darker for better contrast */
+  --ved-warning: #b37700; /* Even darker for AA compliance */
+  --ved-error: #df405a;
+  --ved-focus: #6364FF;
+}
+
+/* Skip Link */
+.ved-skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--ved-primary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+  font-weight: 600;
+}
+
+.ved-skip-link:focus {
+  top: 6px;
+}
+
+/* Focus Indicators */
+*:focus {
+  outline: 2px solid var(--ved-focus);
+  outline-offset: 2px;
+}
+
+.ved-button:focus,
+.ved-nav-link:focus,
+.ved-input:focus {
+  outline: 2px solid var(--ved-focus);
+  outline-offset: 2px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: var(--ved-bg);
+  color: var(--ved-text);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.ved-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.ved-card {
+  background: var(--ved-bg);
+  border: 1px solid var(--ved-border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ved-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ved-border);
+}
+
+.ved-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.ved-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ved-text);
+  margin: 0;
+}
+
+.ved-button {
+  background: linear-gradient(135deg, var(--ved-primary) 0%, var(--ved-primary-dark) 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ved-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 100, 255, 0.3);
+}
+
+.ved-button:active {
+  transform: translateY(0);
+}
+
+.ved-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ved-button-secondary {
+  background: var(--ved-surface);
+  color: var(--ved-text);
+  border: 1px solid var(--ved-border);
+}
+
+.ved-button-secondary:hover {
+  background: var(--ved-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ved-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--ved-border);
+  border-radius: 8px;
+  font-size: 16px;
+  background: var(--ved-bg);
+  color: var(--ved-text);
+  transition: border-color 0.2s ease;
+}
+
+.ved-input:focus {
+  outline: none;
+  border-color: var(--ved-primary);
+  box-shadow: 0 0 0 3px rgba(99, 100, 255, 0.1);
+}
+
+.ved-input-token {
+  font-family: monospace;
+  font-size: 14px;
+  padding-right: 40px;
+  width: calc(100% - 24px);
+}
+
+.ved-show-password-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+  padding: 4px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ved-form-group {
+  margin-bottom: 20px;
+}
+
+.ved-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--ved-text);
+}
+
+.ved-post-card {
+  background: var(--ved-surface);
+  border: 1px solid var(--ved-border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.ved-post-content {
+  margin-bottom: 12px;
+  color: var(--ved-text);
+  line-height: 1.6;
+}
+
+.ved-image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+  gap: 12px;
+  margin-top: 12px;
+  justify-content: start;
+}
+
+.ved-image-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--ved-border);
+}
+
+.ved-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+}
+
+.ved-alt-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 12px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.ved-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.ved-status-missing {
+  background: rgba(223, 64, 90, 0.1);
+  color: var(--ved-error);
+}
+
+.ved-status-generated {
+  background: rgba(255, 173, 31, 0.1);
+  color: var(--ved-warning);
+}
+
+.ved-status-approved {
+  background: rgba(0, 186, 124, 0.1);
+  color: var(--ved-success);
+}
+
+.ved-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: var(--ved-text-secondary);
+}
+
+.ved-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--ved-border);
+  border-top: 2px solid var(--ved-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 12px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.ved-error {
+  background: rgba(223, 64, 90, 0.1);
+  border: 1px solid rgba(223, 64, 90, 0.2);
+  color: var(--ved-error);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.ved-success {
+  background: rgba(0, 186, 124, 0.1);
+  border: 1px solid rgba(0, 186, 124, 0.2);
+  color: var(--ved-success);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.ved-stats {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: var(--ved-surface);
+  border-radius: 8px;
+}
+
+.ved-stat {
+  text-align: center;
+}
+
+.ved-stat-number {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ved-primary);
+}
+
+.ved-stat-label {
+  font-size: 12px;
+  color: var(--ved-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ved-action-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.ved-button-small {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 6px;
+}
+
+/* Login page specific styles */
+.ved-login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--ved-primary) 0%, var(--ved-primary-dark) 100%);
+}
+
+.ved-login-card {
+  background: var(--ved-bg);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.ved-login-logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  display: block;
+}
+
+.ved-login-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--ved-text);
+}
+
+.ved-login-subtitle {
+  text-align: center;
+  color: var(--ved-text-secondary);
+  margin-bottom: 32px;
+}
+/* Flash Message */
+.ved-flash-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1000;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ved-flash-success {
+  background: var(--ved-success-bg, #d4edda);
+  color: var(--ved-success-text, #155724);
+  border: 1px solid var(--ved-success-border, #c3e6cb);
+}
+
+.ved-flash-error {
+  background: var(--ved-error-bg, #f8d7da);
+  color: var(--ved-error-text, #721c24);
+  border: 1px solid var(--ved-error-border, #f5c6cb);
+}
+
+.ved-flash-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.ved-flash-close:hover {
+  opacity: 1;
+}
+/* Image Modal */
+.ved-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.ved-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.ved-modal-image {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.ved-modal-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: var(--ved-surface);
+  border: 2px solid var(--ved-border);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--ved-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ved-modal-close:hover {
+  background: var(--ved-error);
+  color: white;
+}
+
+/* Responsive Design - WCAG 2.2 Level AA Compliance */
+
+/* Ensure content reflows at 320px width (1.4.10 Reflow) */
+@media (max-width: 320px) {
+  .ved-container {
+    padding: 10px;
+  }
+  
+  .ved-nav-content {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .ved-nav-links {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .ved-image-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ved-stats {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .ved-action-buttons {
+    flex-direction: column;
+  }
+}
+
+/* Medium screens - stack navigation if needed */
+@media (max-width: 768px) {
+  .ved-nav-links {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  
+  .ved-nav-link {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Touch targets minimum 44px (2.5.5 Target Size) */
+.ved-button,
+.ved-nav-link,
+.ved-input,
+.ved-modal-close,
+.ved-flash-close {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.ved-button-small {
+  min-height: 44px;
+  padding: 12px 16px;
+}
+
+/* Text spacing support (1.4.12 Text Spacing) - Test mode only */
+.ved-text-spacing-test * {
+  line-height: 1.5 !important;
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+
+.ved-text-spacing-test p,
+.ved-text-spacing-test li,
+.ved-text-spacing-test div {
+  margin-bottom: 2em !important;
+}
+
+/* Ensure content works at 200% zoom */
+@media (min-width: 1280px) {
+  .ved-container {
+    max-width: 1200px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --ved-border: #000000;
+    --ved-text-secondary: #000000;
+  }
+}
+.ved-header-nav {
+  background: var(--ved-bg);
+  border-bottom: 1px solid var(--ved-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ved-nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.ved-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--ved-text);
+}
+
+.ved-nav-logo {
+  width: 32px;
+  height: 32px;
+}
+
+.ved-nav-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ved-primary);
+}
+
+.ved-nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.ved-nav-link {
+  text-decoration: none;
+  color: var(--ved-text-secondary);
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.ved-nav-link:hover {
+  color: var(--ved-primary);
+  background: var(--ved-surface);
+}
+
+.ved-nav-active {
+  color: var(--ved-primary);
+  background: rgba(99, 100, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .ved-media-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ved-post-card {
+    padding: 16px;
+  }
+}
