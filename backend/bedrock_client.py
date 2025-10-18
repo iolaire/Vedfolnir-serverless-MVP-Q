@@ -90,8 +90,11 @@ Please provide only the alt text description, without any additional commentary 
         if 'output' in response_body and 'message' in response_body['output']:
             content = response_body['output']['message']['content']
             if content and len(content) > 0:
-                alt_text = content[0].get('text', '').strip()
+                alt_text = content[0].get('text', '').strip() 
                 
+                # Add AI suffix
+                alt_text += " (AI-generated)"
+
                 # Log token usage for monitoring
                 usage = response_body.get('usage', {})
                 input_tokens = usage.get('inputTokens', 0)
