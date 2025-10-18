@@ -189,35 +189,44 @@ Configure monitoring and performance via `domain-config.json`:
 ### High Usage (100K images/month)
 | Service | Usage | Monthly Cost |
 |---------|-------|-------------|
-| **Amazon Bedrock Nova Lite** | 100K images (max 1024×1024) | $80.00 |
-| **AWS Lambda** | 100K invocations, 256MB, 2s each | $0.85 |
+| **Amazon Bedrock Nova Lite** | 100K images × 2K tokens avg | $240.00 |
+| **AWS Lambda** | 100K invocations, 256MB, 1s each | $0.42 |
 | **Amazon S3** | Frontend hosting, 100K page views | $0.50 |
 | **Amazon CloudFront** | CDN, 100K requests | $0.85 |
 | **AWS Amplify** | Frontend hosting & CI/CD | $0.15 |
 | **Amazon Route 53** | DNS hosting | $0.50 |
-| **Total** | | **$82.85/month** |
+| **DynamoDB** | Rate limiting table | $0.50 |
+| **CloudWatch** | Monitoring & alerts | $1.10 |
+| **Total** | | **$244.02/month** |
 
-**Cost per image: $0.83**
+**Cost per image: $0.0024**
 
 ### Personal Usage (30 images/month)
 | Service | Usage | Monthly Cost |
 |---------|-------|-------------|
-| **Amazon Bedrock Nova Lite** | 30 images (max 1024×1024) | $0.024 |
-| **AWS Lambda** | 30 invocations, 256MB, 2s each | $0.00* |
+| **Amazon Bedrock Nova Lite** | 30 images × 2K tokens avg | $0.072 |
+| **AWS Lambda** | 30 invocations, 256MB, 1s each | $0.00* |
 | **Amazon S3** | Frontend hosting, minimal usage | $0.00* |
 | **Amazon CloudFront** | CDN, minimal requests | $0.00* |
 | **AWS Amplify** | Frontend hosting & CI/CD | $0.00* |
 | **Amazon Route 53** | DNS hosting | $0.50 |
-| **Total** | | **$0.52/month** |
+| **DynamoDB** | Rate limiting table | $0.50 |
+| **CloudWatch** | Monitoring & alerts | $1.10 |
+| **Total** | | **$2.22/month** |
 
-**Cost per image: $0.017**
+**Cost per image: $0.074**
 
 *Covered by AWS Free Tier
 
 ### Cost Breakdown (High Usage)
-- **Bedrock (96%)**: Image processing with Nova Lite model
-- **Lambda (2%)**: Function execution costs  
-- **Infrastructure (2%)**: Hosting, CDN, DNS
+- **Bedrock (98%)**: $240 - Image processing with Nova Lite model
+- **Infrastructure (2%)**: $4.02 - Hosting, CDN, DNS, monitoring
+
+### Nova Lite Pricing Details
+- **Input tokens**: $0.0008 per 1K tokens (image + prompt)
+- **Output tokens**: $0.0016 per 1K tokens (alt text description)
+- **Average usage**: ~2,000 tokens total per image
+- **Lambda duration**: ~1 second average per request
 
 ### Free Tier Benefits
 - **Lambda**: 1M requests + 400K GB-seconds/month free (first 12 months)
@@ -226,10 +235,6 @@ Configure monitoring and performance via `domain-config.json`:
 - **Amplify**: 1K build minutes + 15GB served/month free
 
 ### Cost Optimization Tips
-- Implement prompt caching (up to 50% Bedrock savings)
-- Lambda memory optimized to 256 MB (50% memory cost reduction)
-- Use batch processing for multiple images
-- Enable CloudFront caching for static assets
 - Implement prompt caching (up to 50% Bedrock savings)
 - Lambda memory optimized to 256 MB (50% memory cost reduction)
 - Use batch processing for multiple images
